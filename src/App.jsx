@@ -18,14 +18,22 @@ function App() {
       const taskId = uuid_v4();
       const newTask = {
         id: taskId,
-        projectId: prevState.selectedProjectId,
         text: task,
       };
 
       return {
         ...prevState,
         selectedProjectId: prevState.selectedProjectId,
-        tasks: [...prevState.tasks, newTask],
+        projects: prevState.projects.map((project) => {
+          if (project.id === prevState.selectedProjectId) {
+            return {
+              ...project,
+              tasks: [...(project.tasks || []), newTask],
+            };
+          } else {
+            return project;
+          }
+        }),
       };
     });
   }
@@ -35,7 +43,16 @@ function App() {
       return {
         ...prevState,
         selectedProjectId: prevState.selectedProjectId,
-        tasks: prevState.tasks.filter((task) => task.id !== id),
+        projects: prevState.projects.map((project) => {
+          if (project.id === prevState.selectedProjectId) {
+            return {
+              ...project,
+              tasks: project.tasks.filter((task) => task.id !== id),
+            };
+          } else {
+            return project;
+          }
+        }),
       };
     });
   }
@@ -99,7 +116,7 @@ function App() {
         onDelete={handleDeleteProject}
         onAddTask={handleAddTask}
         onDeleteTask={handleDeleteTask}
-        tasks={projectStates.tasks}
+        tasks={selectedProject.tasks || []}
       />
     );
   } else if (projectStates.selectedProjectId === null) {
