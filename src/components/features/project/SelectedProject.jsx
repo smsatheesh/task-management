@@ -1,5 +1,5 @@
-import Paragraph from "./Paragraph";
-import Tasks from "./Tasks";
+import Paragraph from "../../shared/ui/Paragraph";
+import Tasks from "../task/Tasks";
 
 export default function SelectedProject({
   project,

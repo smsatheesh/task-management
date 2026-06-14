@@ -1,9 +1,9 @@
 import { useRef } from "react";
 
-import Header from "./Header";
-import Paragraph from "./Paragraph";
-import Input from "./Input";
-import Modal from "./Modal";
+import Header from "../../shared/ui/Header";
+import Paragraph from "../../shared/ui/Paragraph";
+import Input from "../../shared/ui/Input";
+import Modal from "../../shared/ui/Modal";
 
 export default function Project({ onAdd, onCancel }) {
   const title = useRef();

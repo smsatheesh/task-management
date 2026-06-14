@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { v4 as uuid_v4 } from "uuid";
 
-import SideBar from "./components/SideBar";
-import Project from "./components/Project";
-import FallBackProject from "./components/FallBackProject";
-import SelectedProject from "./components/SelectedProject";
+import SideBar from "./components/layout/SideBar";
+import Project from "./components/features/project/Project";
+import FallBackProject from "./components/features/project/FallBackProject";
+import SelectedProject from "./components/features/project/SelectedProject";
 
 function App() {
   const [projectStates, setProjectStates] = useState({

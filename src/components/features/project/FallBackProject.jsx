@@ -1,7 +1,7 @@
-import Header from "./Header";
-import Button from "./Button";
-import fallBackImage from "../assets/no-projects.png";
-import Paragraph from "./Paragraph";
+import Header from "../../shared/ui/Header";
+import Button from "../../shared/ui/Button";
+import fallBackImage from "../../../assets/no-projects.png";
+import Paragraph from "../../shared/ui/Paragraph";
 
 export default function FallBackProject({ onStartAddProject }) {
   return (
